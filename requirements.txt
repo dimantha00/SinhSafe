@@ -1,0 +1,29 @@
+# --- Deep Learning & NLP ---
+torch
+transformers
+sentencepiece
+tokenizers
+
+# --- Data Handling ---
+pandas
+numpy
+scikit-learn
+tqdm
+
+# --- Visualization ---
+matplotlib
+seaborn
+
+# --- Development Tools ---
+jupyter
+ipykernel
+
+# --- Sinhala Specific (Optional - Uncomment if needed) ---
+# sinling
+# sinlingua
+
+# --- LLM & Optimization (For SinLlama) ---
+accelerate
+bitsandbytes
+peft
+scipy
