@@ -208,9 +208,9 @@ __marimo__/
 
 # --- Custom Ignores ---
 # Ignore the data folder so we don't upload the dataset
-data/
 models/
 
 # 3. ...BUT force Git to track the processed folder
+data/
 !data/processed_ground_truth/
 !data/processed_ground_truth/*.xlsx
