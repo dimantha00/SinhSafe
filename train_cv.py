@@ -79,17 +79,25 @@ for fold, (train_idx, val_idx) in enumerate(skf.split(df, df['label'])):
     training_args = TrainingArguments(
         output_dir=f'./results/fold_{fold}',
         num_train_epochs=3,
-        per_device_train_batch_size=16,
+        
+        # Maximize GPU Usage (Batch Size 16 fits easily with max_len=128)
+        per_device_train_batch_size=16, 
         per_device_eval_batch_size=32,
+        gradient_accumulation_steps=1,  # No need to delay updates anymore
+        
         warmup_steps=200,
         weight_decay=0.01,
         logging_steps=50,
-        evaluation_strategy="epoch",
+        eval_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
-        fp16=True, # RTX 3090 Speed boost
-        dataloader_num_workers=4,
-        report_to="none" # Keep console clean
+        
+        # Speed Optimizations (Enabled!)
+        fp16=True,                    # Uses Tensor Cores (2x speed)
+        dataloader_num_workers=4,     # Uses 4 CPU cores to feed data fast
+        dataloader_pin_memory=True,   # Faster RAM-to-GPU transfer
+        
+        report_to="none"
     )
     
     trainer = Trainer(

@@ -9,6 +9,8 @@ pandas
 numpy
 scikit-learn
 tqdm
+datasets       <-- ADD THIS (Crucial for your script)
+openpyxl       <-- ADD THIS (Crucial for reading Excel files)
 
 # --- Visualization ---
 matplotlib
@@ -22,7 +24,7 @@ ipykernel
 # sinling
 # sinlingua
 
-# --- LLM & Optimization (For SinLlama) ---
+# --- LLM & Optimization ---
 accelerate
 bitsandbytes
 peft
